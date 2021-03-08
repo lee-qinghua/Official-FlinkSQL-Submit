@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cebbank</groupId>
-    <artifactId>tttttttttt</artifactId>
+    <artifactId>offical-flink-sql-submit</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
