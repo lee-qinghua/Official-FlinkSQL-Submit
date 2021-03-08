@@ -5,15 +5,20 @@ import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SqlCommandParser {
-     public static void method() {
+/**
+ *
+ */
+public final class SqlCommandParser {
 
-     }
+    private SqlCommandParser() {
+        // private
+    }
+
     public static List<SqlCommandCall> parse(List<String> lines) {
         List<SqlCommandCall> calls = new ArrayList<>();
         StringBuilder stmt = new StringBuilder();
         for (String line : lines) {
-            if (line.trim().isEmpty() || line.trim().startsWith("--")||line.trim().startsWith("//")) {
+            if (line.trim().isEmpty() || line.trim().startsWith("--") || line.trim().startsWith("//")) {
                 // skip empty line and comment line
                 continue;
             }
@@ -31,6 +36,7 @@ public class SqlCommandParser {
         }
         return calls;
     }
+
     public static Optional<SqlCommandCall> parse(String stmt) {
         // normalize
         stmt = stmt.trim();
@@ -53,6 +59,7 @@ public class SqlCommandParser {
         }
         return Optional.empty();
     }
+
     // --------------------------------------------------------------------------------------------
 
     private static final Function<String[], Optional<String[]>> NO_OPERANDS =
@@ -74,14 +81,9 @@ public class SqlCommandParser {
         CREATE_TABLE(
                 "(CREATE\\s+TABLE.*)",
                 SINGLE_OPERAND),
-        CREATE_FUNCTION("(CREATE\\s+FUNCTION.*)",SINGLE_OPERAND),
-
-        DROP_FUNCTION("(DROP\\s+FUNCTION.*)",SINGLE_OPERAND),
-
-        CREATE_VIEW("(CREATE\\s+VIEW.*)",SINGLE_OPERAND),
-		/*QUERY_TABLE(
-				"(SELECT\\s.*)",
-				SINGLE_OPERAND),*/
+        CREATE_FUNCTION("(CREATE\\s+FUNCTION.*)", SINGLE_OPERAND),
+        DROP_FUNCTION("(DROP\\s+FUNCTION.*)", SINGLE_OPERAND),
+        CREATE_VIEW("(CREATE\\s+VIEW.*)", SINGLE_OPERAND),
 
         SET(
                 "SET(\\s+(\\S+)\\s*=(.*))?", // whitespace is only ignored on the left side of '='
@@ -111,7 +113,6 @@ public class SqlCommandParser {
             return operandConverter != NO_OPERANDS;
         }
     }
-
 
     /**
      * Call of SQL command with operands and command type.
