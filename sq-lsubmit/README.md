@@ -3,7 +3,7 @@
 * 执行时指定参数 -w <work-space-dir> -f <sql-file>
     + -w SQL文件路径
     + -f SQL文件名
-    
+     
 ## SQL说明
 * 默认流处理
 * 支持set, create table, create view, insert into语法
