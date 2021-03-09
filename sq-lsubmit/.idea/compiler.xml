@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="sql-submit" />
+        <module name="offical-sql-submit" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="sql-submit" target="1.8" />
+      <module name="offical-sql-submit" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
