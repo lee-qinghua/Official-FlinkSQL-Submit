@@ -15,7 +15,7 @@
       'connector.type' = 'kafka',
       'connector.version' = 'universal',
       'connector.topic' = 'kafkaCreditApplyInfo_1234',
-      'connector.properties.group.id'='dev_flink',
+      'connector.properties.group.id'='dev_flink2',
       'connector.properties.zookeeper.connect' = '10.1.30.6:2181',
       'connector.properties.bootstrap.servers' = '10.1.30.8:9092',
       'format.type' = 'json',
@@ -52,7 +52,7 @@
       'connector.type' = 'kafka',
       'connector.version' = 'universal',
       'connector.topic' = 'kafkaCreditResultInfo_1234',
-      'connector.properties.group.id'='dev_flink',
+      'connector.properties.group.id'='dev_flink2',
       'connector.properties.zookeeper.connect' = '10.1.30.6:2181',
       'connector.properties.bootstrap.servers' = '10.1.30.8:9092',
       'format.type' = 'json',
@@ -117,8 +117,7 @@
        WITH (
       'connector.type' = 'kafka',
 	  'connector.version' = 'universal',
-      'connector.topic' = 'kafkaProductMonitor',
-      'connector.properties.group.id'='dev_flink',
+      'connector.topic' = 'suixindai_monitor',
       'connector.properties.zookeeper.connect' = '10.1.30.6:2181',
       'connector.properties.bootstrap.servers' = '10.1.30.8:9092',
       'format.type' = 'json',
@@ -129,7 +128,7 @@
 create view kafka_apply_info_200 as
 select * from kafka_apply_info where BUSINESS_TYPE_CD='P0036';
 
-creat view kafka_result_info_200 as
+create view kafka_result_info_200 as
 select * from kafka_result_info where BUSINESS_TYPE_CD='P0036';
 
 
