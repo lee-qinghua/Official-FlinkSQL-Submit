@@ -1,5 +1,5 @@
 --kafka授信申请表
-    CREATE TABLE kafka_apply_info (
+    CREATE TABLE kafka_apply_info_200 (
       SESSION_ID STRING,
       APP_NO STRING,
       CUST_ID STRING,
@@ -24,7 +24,7 @@
       );
 
 --kafka授信结果表
-   CREATE TABLE kafka_result_info (
+   CREATE TABLE kafka_result_info_200 (
       SESSION_ID STRING,
       APP_NO  STRING,
       CUST_ID STRING,
@@ -125,11 +125,11 @@
     );
 
 -- only suixindai
-create view kafka_apply_info_200 as
-select * from kafka_apply_info where BUSINESS_TYPE_CD='P0036';
-
-create view kafka_result_info_200 as
-select * from kafka_result_info where BUSINESS_TYPE_CD='P0036';
+-- create view kafka_apply_info_200 as
+-- select * from kafka_apply_info where BUSINESS_TYPE_CD='P0036';
+--
+-- create view kafka_result_info_200 as
+-- select * from kafka_result_info where BUSINESS_TYPE_CD='P0036';
 
 
 
@@ -394,7 +394,7 @@ select
     RATE_OC_1H,
     RATE_OC_2H,
     RATE_OC_6H
-from mid_table2;
+from mid_table2 where mid_table2.BUSINESS_TYPE_CD='P0036';
 
 
 
