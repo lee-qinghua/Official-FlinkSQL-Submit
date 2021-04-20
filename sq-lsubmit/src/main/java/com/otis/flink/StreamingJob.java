@@ -23,7 +23,9 @@ import com.otis.flink.sqlSubmit.CliOptions;
 import com.otis.flink.sqlSubmit.CliOptionsParser;
 import com.otis.flink.sqlSubmit.SqlSubmit;
 import com.otis.flink.udaf.CustomCount;
+import com.otis.flink.udaf.GetRedis;
 import com.otis.flink.udaf.PreviousValueAggFunction;
+import com.otis.flink.udaf.UpdateRedis;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
@@ -57,6 +59,8 @@ public class StreamingJob {
         // 注册函数
         tableEnvironment.registerFunction("previous_lag_long", new PreviousValueAggFunction.LongPreviousValueAggFunction());
         tableEnvironment.registerFunction("customcount", new CustomCount());
+        tableEnvironment.registerFunction("update_redis", new UpdateRedis());
+        tableEnvironment.registerFunction("get_redis", new GetRedis());
 
         SqlSubmit submit = new SqlSubmit(options, tableEnvironment);
 

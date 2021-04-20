@@ -43,6 +43,13 @@
         </repository>
     </repositories>
     <dependencies>
+        <!--redis 客户端-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+
         <!-- 需要添加的依赖 -->
         <dependency>
             <groupId>org.apache.flink</groupId>
