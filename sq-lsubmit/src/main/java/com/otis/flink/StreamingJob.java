@@ -59,8 +59,9 @@ public class StreamingJob {
         // 注册函数
         tableEnvironment.registerFunction("previous_lag_long", new PreviousValueAggFunction.LongPreviousValueAggFunction());
         tableEnvironment.registerFunction("customcount", new CustomCount());
-        tableEnvironment.registerFunction("update_redis", new UpdateRedis());
-        tableEnvironment.registerFunction("get_redis", new GetRedis());
+//        udf更新redis udf 读取redis
+//        tableEnvironment.registerFunction("update_redis", new UpdateRedis());
+//        tableEnvironment.registerFunction("get_redis", new GetRedis());
 
         SqlSubmit submit = new SqlSubmit(options, tableEnvironment);
 
